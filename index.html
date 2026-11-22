@@ -13,22 +13,30 @@ nav{background:white;display:flex;gap:4px;padding:8px 10px;position:relative;z-i
 .drop>button.active{background:#fdf0f3;color:#7a0a2a}
 .menu{display:none;position:absolute;right:0;top:48px;background:white;min-width:290px;border-radius:14px;box-shadow:0 15px 40px rgba(0,0,0,.25);z-index:999;border:1px solid #eee;padding:6px 0;max-height:82vh;overflow-y:auto}
 .menu.open{display:block}
-.menu a{display:flex;align-items:center;gap:10px;justify-content:space-between;padding:12px 14px;text-decoration:none;color:#222;font-size:15px}
+.menu a{display:flex;align-items:center;gap:10px;justify-content:space-between;padding:12px 14px;text-decoration:none;color:#222;font-size:15px;cursor:pointer}
 .menu a:hover{background:#fdf0f3}.menu a span{flex:1}.menu .ic{width:32px;height:32px;border-radius:9px;background:#fdf0f3;display:flex;align-items:center;justify-content:center;font-size:16px;color:#7a0a2a}
 .menu .head{padding:8px 14px;font-size:12px;color:#999;font-weight:700}
-.greet{margin:12px;background:#e8eafb;border-radius:12px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
-.banner{margin:12px;background:linear-gradient(90deg,#8b0f32,#4a0620);color:white;border-radius:16px;padding:22px;position:relative;overflow:hidden;min-height:180px}
+.page{display:none;padding:12px}.page.active{display:block}
+.greet{margin:0 0 12px;background:#e8eafb;border-radius:12px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
+.banner{margin:0 0 12px;background:linear-gradient(90deg,#8b0f32,#4a0620);color:white;border-radius:16px;padding:22px;position:relative;overflow:hidden;min-height:180px}
 .banner .tags{display:flex;gap:6px;flex-wrap:wrap}.tag{padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700}.tag1{background:#ff2d55}.tag2{background:#00a86b}.tag3{background:#ffcc00;color:#000}
 .banner h2{margin:10px 0 6px;font-size:22px}.banner p{opacity:.9;line-height:1.6}.banner button{background:white;color:#8b0f32;border:0;padding:10px 18px;border-radius:20px;font-weight:700;cursor:pointer;margin-top:10px}
 .arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.25);color:white;border:0;width:38px;height:38px;border-radius:50%;font-size:18px;cursor:pointer;z-index:5}
 .arrowL{left:10px}.arrowR{right:10px}
 .dots{text-align:center;margin-top:10px}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ccc;margin:0 3px;cursor:pointer}.dot.on{background:#8b0f32;width:22px;border-radius:10px}
-.sec{display:flex;justify-content:space-between;align-items:center;padding:4px 12px}.sec h3{margin:6px 0;font-size:16px}.sec a{color:#7a0a2a;text-decoration:none;font-size:13px}
-.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;padding:8px 12px}
-.card{background:white;border-radius:14px;padding:14px;box-shadow:0 2px 8px #0001;min-height:110px}
+.sec{display:flex;justify-content:space-between;align-items:center;padding:4px 0}.sec h3{margin:6px 0;font-size:16px}.sec a{color:#7a0a2a;text-decoration:none;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;padding:8px 0}
+.card{background:white;border-radius:14px;padding:14px;box-shadow:0 2px 8px #0001;min-height:110px;cursor:pointer}
 .card .t{font-size:13px;color:#555;display:flex;justify-content:space-between}.card b{font-size:22px;color:#8b0f32;display:block;margin-top:10px}.card .s{font-size:11px;color:#888}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:8px 12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:8px 0}
 .card2{background:white;border-radius:14px;padding:14px;box-shadow:0 2px 8px #0001;display:flex;justify-content:space-between;align-items:center}
+.box{background:white;border-radius:14px;padding:16px;box-shadow:0 2px 8px #0001;margin-bottom:10px}
+.box h3{margin:0 0 10px}.box input,.box select{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;margin:6px 0;font-size:15px}
+.btn{background:#7a0a2a;color:white;border:0;padding:12px 18px;border-radius:10px;font-weight:700;cursor:pointer;width:100%;margin-top:8px}
+.btn2{background:white;color:#7a0a2a;border:1px solid #7a0a2a;padding:10px;border-radius:10px;cursor:pointer}
+.back{background:#eee;border:0;padding:8px 14px;border-radius:20px;cursor:pointer;margin-bottom:10px}
+.row{display:flex;justify-content:space-between;align-items:center;background:#fdf2f4;padding:12px;border-radius:12px;margin:8px 0}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}.tabs button{background:white;border:1px solid #ddd;padding:9px 14px;border-radius:20px;cursor:pointer}.tabs button.on{background:#7a0a2a;color:white}
 @media(max-width:900px){.grid{grid-template-columns:repeat(3,1fr)}.grid2{grid-template-columns:1fr}}
 @media(max-width:550px){.grid{grid-template-columns:1fr 1fr}.banner h2{font-size:19px}}
 </style>
@@ -37,35 +45,54 @@ nav{background:white;display:flex;gap:4px;padding:8px 10px;position:relative;z-i
 <div class="top"><div><b>FUX</b> - علي خالد ويس</div><div>🔔 23 | علي خالد ويس 👤 <button>فرع الفرسان</button></div></div>
 <nav>
 <div class="drop"><button class="navBtn" data-menu="m1">الرئيسية ▼</button><div id="m1" class="menu">
-<a href="#"><span>الرئيسية</span><div class="ic">🏠</div></a>
-<a href="#"><span>مهامي</span><div class="ic">☰</div></a>
+<a onclick="openPage('home')"><span>الرئيسية</span><div class="ic">🏠</div></a>
+<a onclick="openPage('tasks')"><span>مهامي</span><div class="ic">☰</div></a>
 <div class="head">المنتجات والتحويلات</div>
-<a href="#"><span>أين أجد المنتج؟</span><div class="ic">🔍</div></a>
-<a href="#"><span>منتجات الفرع</span><div class="ic">📦</div></a>
-<a href="#"><span>التحويل المتوقع</span><div class="ic">🔄</div></a>
-<a href="#"><span>استلام شحنة</span><div class="ic">📥</div></a>
+<a onclick="openPage('find')"><span>أين أجد المنتج؟</span><div class="ic">🔍</div></a>
+<a onclick="openPage('branch')"><span>منتجات الفرع</span><div class="ic">📦</div></a>
+<a onclick="openPage('expected')"><span>التحويل المتوقع</span><div class="ic">🔄</div></a>
+<a onclick="openPage('receive')"><span>استلام شحنة</span><div class="ic">📥</div></a>
 <div class="head">التحليل والتقارير</div>
-<a href="#"><span>التحليل والتقارير</span><div class="ic">📊</div></a>
-<a href="#"><span>تحليل فرعي</span><div class="ic">📈</div></a>
-<a href="#"><span>التقارير</span><div class="ic">📋</div></a>
-<a href="#"><span>التقارير الشهرية</span><div class="ic">🗓️</div></a>
+<a onclick="openPage('analysis')"><span>التحليل والتقارير</span><div class="ic">📊</div></a>
+<a onclick="openPage('subanalysis')"><span>تحليل فرعي</span><div class="ic">📈</div></a>
+<a onclick="openPage('reports')"><span>التقارير</span><div class="ic">📋</div></a>
+<a onclick="openPage('monthly')"><span>التقارير الشهرية</span><div class="ic">🗓️</div></a>
 </div></div>
-<div class="drop"><button class="navBtn" data-menu="m2">الطلبات ▼</button><div id="m2" class="menu"><a href="#"><span>طلبات المنتج</span><div class="ic">🛒</div></a><a href="#"><span>طلبات المنتجات</span><div class="ic">📦</div></a><a href="#"><span>الوارد إلى فرعي</span><div class="ic">📥</div></a><a href="#"><span>طلباتي</span><div class="ic">📝</div></a><a href="#"><span>بانتظار الرد فقط</span><div class="ic">⏳</div></a></div></div>
-<div class="drop"><button class="navBtn" data-menu="m3">المراسلات ▼</button><div id="m3" class="menu"><a href="#"><span>المراسلات الرسمية</span><div class="ic">📄</div></a><a href="#"><span>المحادثات الداخلية</span><div class="ic">💬</div></a><a href="#"><span>ملفات الدفعات</span><div class="ic">📁</div></a></div></div>
-<div class="drop"><button class="navBtn" data-menu="m4">المرجع ▼</button><div id="m4" class="menu"><a href="#"><span>المسؤوليات</span><div class="ic">👥</div></a><a href="#"><span>الآليات والتعليمات</span><div class="ic">📜</div></a><a href="#"><span>بطاقات التعريف</span><div class="ic">🪪</div></a></div></div>
-<div class="drop"><button class="navBtn" data-menu="m5">حسابي ▼</button><div id="m5" class="menu"><a href="#"><span>حسابي والبريد</span><div class="ic">📧</div></a><a href="#"><span>التحكم في التطبيق والتطوير</span><div class="ic">🔧</div></a></div></div>
+<div class="drop"><button class="navBtn" data-menu="m2">الطلبات ▼</button><div id="m2" class="menu">
+<a onclick="openPage('order1')"><span>طلبات المنتج</span><div class="ic">🛒</div></a>
+<a onclick="openPage('order2')"><span>طلبات المنتجات</span><div class="ic">📦</div></a>
+<a onclick="openPage('incoming')"><span>الوارد إلى فرعي</span><div class="ic">📥</div></a>
+<a onclick="openPage('myorders')"><span>طلباتي</span><div class="ic">📝</div></a>
+<a onclick="openPage('waiting')"><span>بانتظار الرد فقط</span><div class="ic">⏳</div></a>
+</div></div>
+<div class="drop"><button class="navBtn" data-menu="m3">المراسلات ▼</button><div id="m3" class="menu">
+<a onclick="openPage('official')"><span>المراسلات الرسمية</span><div class="ic">📄</div></a>
+<a onclick="openPage('chat')"><span>المحادثات الداخلية</span><div class="ic">💬</div></a>
+<a onclick="openPage('payments')"><span>ملفات الدفعات</span><div class="ic">📁</div></a>
+</div></div>
+<div class="drop"><button class="navBtn" data-menu="m4">المرجع ▼</button><div id="m4" class="menu">
+<a onclick="openPage('resp')"><span>المسؤوليات</span><div class="ic">👥</div></a>
+<a onclick="openPage('rules')"><span>الآليات والتعليمات</span><div class="ic">📜</div></a>
+<a onclick="openPage('cards')"><span>بطاقات التعريف</span><div class="ic">🪪</div></a>
+</div></div>
+<div class="drop"><button class="navBtn" data-menu="m5">حسابي ▼</button><div id="m5" class="menu">
+<a onclick="openPage('account')"><span>حسابي والبريد</span><div class="ic">📧</div></a>
+<a onclick="openPage('control')"><span>التحكم في التطبيق والتطوير</span><div class="ic">🔧</div></a>
+</div></div>
 </nav>
+
+<div id="home" class="page active">
 <div class="greet"><div><b>مرحباً، فرع الفرسان 🌙 مساء الخير</b><div class="small" style="color:#666">لديك اليوم 370 منتجات متوقفة عن البيع و 0 منتجاً بالسالب و 35 منتج في الطريق إليك.</div></div><div style="text-align:left"><b style="color:#5b6bd5">مساء الخير</b><div class="small">الثالث 23 نوفمبر 2026</div></div></div>
 <div class="banner"><button class="arrow arrowR" onclick="move(-1)">›</button><button class="arrow arrowL" onclick="move(1)">‹</button><div><div class="tags"><span>📢 الإعلانات والتحديثات</span><span class="tag tag1">! مهم</span><span class="tag tag2">✦ جديد</span><span class="tag tag3">🔔 2 غير مقروءة</span></div><h2 id="bTitle">بطاقة المنتجات المقايضة | متابعة أدق وتحكم أكبر</h2><p id="bText">تمت إضافة بطاقة المنتجات المقايضة إلى نظام FUX، لتوفير طريقة أكثر سهولة ومرونة لمتابعة المنتجات المقايضة حسب الفترة المحددة.</p><button>ما الجديد؟ ← اقرأ المزيد</button><div style="font-size:12px;margin-top:10px;opacity:.8">🕐 2026-11-22 - علي خالد ويس | كل الإعلانات (6)</div></div></div>
 <div class="dots"><span class="dot on" onclick="go(0)"></span><span class="dot" onclick="go(1)"></span><span class="dot" onclick="go(2)"></span></div>
 <div class="sec"><h3>ملخص الفرع</h3><a href="#">كل التقارير</a></div>
 <div class="grid">
-<div class="card"><div class="t">المنتجات السالبة <span>📉</span></div><b>0 منتج</b><div class="s">0 وحدة بالسالب</div></div>
-<div class="card"><div class="t">العروض المقفلة <span>🏷️</span></div><b>0 منتج</b><div class="s">0 وحدة في رصيد الفرع</div></div>
-<div class="card"><div class="t">المتوقف عن البيع <span>⏸️</span></div><b>370 منتج</b><div class="s">3,483 وحدة</div></div>
-<div class="card"><div class="t">المقايض على الاشتراء <span>🛒</span></div><b>1,872 منتج</b><div class="s">11,783 وحدة</div></div>
-<div class="card"><div class="t">التحويل الواردة <span>📥</span></div><b>35 منتج</b><div class="s">167 وحدة</div></div>
-<div class="card"><div class="t">التحويل الصادرة <span>📤</span></div><b>26 منتج</b><div class="s">89 وحدة</div></div>
+<div class="card" onclick="openPage('branch')"><div class="t">المنتجات السالبة <span>📉</span></div><b>0 منتج</b><div class="s">0 وحدة بالسالب</div></div>
+<div class="card" onclick="openPage('branch')"><div class="t">العروض المقفلة <span>🏷️</span></div><b>0 منتج</b><div class="s">0 وحدة في رصيد الفرع</div></div>
+<div class="card" onclick="openPage('branch')"><div class="t">المتوقف عن البيع <span>⏸️</span></div><b>370 منتج</b><div class="s">3,483 وحدة</div></div>
+<div class="card" onclick="openPage('branch')"><div class="t">المقايض على الاشتراء <span>🛒</span></div><b>1,872 منتج</b><div class="s">11,783 وحدة</div></div>
+<div class="card" onclick="openPage('incoming')"><div class="t">التحويل الواردة <span>📥</span></div><b>35 منتج</b><div class="s">167 وحدة</div></div>
+<div class="card" onclick="openPage('myorders')"><div class="t">التحويل الصادرة <span>📤</span></div><b>26 منتج</b><div class="s">89 وحدة</div></div>
 </div>
 <div class="grid2">
 <div class="card2"><div><b>مواعيد الشحنات 🚚</b><div style="color:#7a0a2a;font-weight:700;margin-top:8px">الاثنين + الخميس</div><div class="small">الموعد القادم: اليوم الثلاثاء</div></div><div style="font-size:32px">🚚</div></div>
@@ -73,14 +100,68 @@ nav{background:white;display:flex;gap:4px;padding:8px 10px;position:relative;z-i
 </div>
 <div class="sec"><h3>المتابعة اليومية</h3><a href="#">كل التقارير</a></div>
 <div class="grid">
-<div class="card"><div class="t">مهام مطلوبة مني <span>☰</span></div><b>4</b><div class="s">مهمة من الإدارة لم تُنجز</div></div>
-<div class="card"><div class="t">بحاجة لردي <span>↩️</span></div><b>0</b><div class="s">مراسلة تنتظرك</div></div>
-<div class="card"><div class="t">رسائل غير مقروءة <span>✉️</span></div><b>21</b><div class="s">مراسلة لم تُفتح بعد</div></div>
-<div class="card"><div class="t">دفعات مفتوحة <span>📁</span></div><b>1</b><div class="s">ملف دفعات قيد المعالجة</div></div>
-<div class="card"><div class="t">منتجات الفرع <span>📦</span></div><b style="font-size:18px">المكياج وبقية المنتجات</b><div class="s">المنتجات وحالة كل منتج</div></div>
-<div class="card"><div class="t">أصناف سالبة <span>📉</span></div><b>5</b><div class="s">من احتياج الفرع</div></div>
+<div class="card" onclick="openPage('tasks')"><div class="t">مهام مطلوبة مني <span>☰</span></div><b>4</b><div class="s">مهمة من الإدارة لم تُنجز</div></div>
+<div class="card" onclick="openPage('official')"><div class="t">بحاجة لردي <span>↩️</span></div><b>0</b><div class="s">مراسلة تنتظرك</div></div>
+<div class="card" onclick="openPage('official')"><div class="t">رسائل غير مقروءة <span>✉️</span></div><b>21</b><div class="s">مراسلة لم تُفتح بعد</div></div>
+<div class="card" onclick="openPage('payments')"><div class="t">دفعات مفتوحة <span>📁</span></div><b>1</b><div class="s">ملف دفعات قيد المعالجة</div></div>
+<div class="card" onclick="openPage('branch')"><div class="t">منتجات الفرع <span>📦</span></div><b style="font-size:18px">المكياج وبقية المنتجات</b><div class="s">المنتجات وحالة كل منتج</div></div>
+<div class="card" onclick="openPage('branch')"><div class="t">أصناف سالبة <span>📉</span></div><b>5</b><div class="s">من احتياج الفرع</div></div>
 </div>
+</div>
+
+<div id="tasks" class="page"><button class="back" onclick="openPage('home')">← رجوع للرئيسية</button><div class="box"><h3>☰ مهامي</h3><p>مهامك الخاصة فيك</p><div class="row"><span>✅ ترتيب رف العطور</span><span class="btn2">تم</span></div><div class="row"><span>📌 جرد منتجات الفرع</span><span class="btn2">قيد التنفيذ</span></div><div class="row"><span>📌 متابعة التحويل الوارد</span><span class="btn2">جديد</span></div><div class="row"><span>📌 رد على مراسلة الإدارة</span><span class="btn2">جديد</span></div></div></div>
+
+<div id="find" class="page"><button class="back" onclick="openPage('home')">← رجوع</button><div class="box"><h3>🔍 أين أجد المنتج؟</h3><p>ابحث عن المنتج وشوف وين موجود، واطلبه بضغطة زر</p><input id="searchInput" placeholder="اكتب اسم المنتج أو الباركود... مثال: عطر ..."><button class="btn" onclick="searchProduct()">بحث</button><div id="searchResult"></div></div><div class="box"><h3>نتائج البحث</h3><div class="row"><span>عطر الفرسان - فرع الدمام 📦 متوفر 12</span><button class="btn2" onclick="alert('تم إرسال طلبك لفرع الدمام')">اطلب</button></div><div class="row"><span>عطر الفرسان - فرع الرياض 📦 متوفر 8</span><button class="btn2" onclick="alert('تم إرسال طلبك لفرع الرياض')">اطلب</button></div><div class="row"><span>عطر الفرسان - فرع جدة 📦 متوفر 5</span><button class="btn2" onclick="alert('تم إرسال طلبك لفرع جدة')">اطلب</button></div></div></div>
+
+<div id="branch" class="page"><button class="back" onclick="openPage('home')">← رجوع</button><div class="box"><h3>📦 منتجات الفرع - فرع الفرسان</h3><div class="tabs"><button class="on">الكل</button><button>المتوفر</button><button>المتوقف</button><button>السالب</button></div><div class="row"><span>منتج 1 - مكياج - متوفر 45</span><span style="color:green">● متوفر</span></div><div class="row"><span>منتج 2 - عطور - متوفر 0</span><span style="color:red">● متوقف</span></div><div class="row"><span>منتج 3 - عناية - متوفر 12</span><span style="color:green">● متوفر</span></div></div></div>
+
+<div id="expected" class="page"><button class="back" onclick="openPage('home')">← رجوع</button><div class="box"><h3>🔄 التحويل المتوقع</h3><p>التحويلات اللي متوقع توصلك</p><div class="row"><span>تحويل من فرع الرياض - 12 منتج - يوصلك الثلاثاء</span><span>📥 متوقع</span></div><div class="row"><span>تحويل من فرع الدمام - 23 منتج - يوصلك الخميس</span><span>📥 متوقع</span></div></div></div>
+
+<div id="receive" class="page"><button class="back" onclick="openPage('home')">← رجوع</button><div class="box"><h3>📥 استلام شحنة</h3><input placeholder="رقم الشحنة"><input placeholder="عدد الكراتين"><button class="btn" onclick="alert('تم استلام الشحنة بنجاح ✅')">تأكيد الاستلام</button></div></div>
+
+<div id="analysis" class="page"><button class="back" onclick="openPage('home')">← رجوع</button><div class="box"><h3>📊 التحليل والتقارير</h3><p>مبيعات الفرع: 1,872 منتج مقايض - 370 متوقف - 35 وارد</p><div class="row"><span>مبيعات هذا الأسبوع</span><b>4,250 ر.س</b></div><div class="row"><span>مبيعات هذا الشهر</span><b>18,900 ر.س</b></div></div></div>
+
+<div id="subanalysis" class="page"><button class="back" onclick="openPage('home')">← رجوع</button><div class="box"><h3>📈 تحليل فرعي</h3><p>تحليل فرع الفرسان بالتفصيل</p><div class="row"><span>أكثر قسم مبيعاً</span><b>المكياج</b></div><div class="row"><span>أقل قسم مبيعاً</span><b>العطور</b></div></div></div>
+
+<div id="reports" class="page"><button class="back" onclick="openPage('home')">← رجوع</button><div class="box"><h3>📋 التقارير</h3><div class="row"><span>تقرير المخزون اليومي</span><button class="btn2">تحميل</button></div><div class="row"><span>تقرير المبيعات</span><button class="btn2">تحميل</button></div></div></div>
+
+<div id="monthly" class="page"><button class="back" onclick="openPage('home')">← رجوع</button><div class="box"><h3>🗓️ التقارير الشهرية</h3><div class="row"><span>تقرير نوفمبر 2026</span><button class="btn2">عرض</button></div><div class="row"><span>تقرير أكتوبر 2026</span><button class="btn2">عرض</button></div></div></div>
+
+<div id="order1" class="page"><button class="back" onclick="openPage('home')">← رجوع</button><div class="box"><h3>🛒 طلبات المنتج</h3><p>اطلب منتج واحد بسرعة</p><input placeholder="اسم المنتج"><input placeholder="الكمية"><button class="btn" onclick="alert('تم إرسال الطلب')">إرسال الطلب</button></div></div>
+
+<div id="order2" class="page"><button class="back" onclick="openPage('home')">← رجوع</button><div class="box"><h3>📦 طلبات المنتجات</h3><p>ادخل على أين أجد المنتج؟ وتلقى بجانب الفرع زر اطلب</p><button class="btn" onclick="openPage('find')">اذهب إلى أين أجد المنتج؟</button></div></div>
+
+<div id="incoming" class="page"><button class="back" onclick="openPage('home')">← رجوع</button><div class="box"><h3>📥 الوارد إلى فرعي</h3><div class="tabs"><button class="on">الكل</button><button>الوارد</button><button>بانتظار الرد</button></div><div class="row"><span>طلب من فرع الرياض - عطر - 10 حبات</span><button class="btn2" onclick="alert('تم القبول ✅')">قبول</button></div><div class="row"><span>طلب من فرع جدة - مكياج - 5 حبات</span><button class="btn2" onclick="alert('تم الرفض')">رفض</button></div></div></div>
+
+<div id="myorders" class="page"><button class="back" onclick="openPage('home')">← رجوع</button><div class="box"><h3>📝 طلباتي</h3><div class="row"><span>طلبت من فرع الدمام - عطر - تم القبول ✅</span><span>تم</span></div><div class="row"><span>طلبت من فرع الرياض - مكياج - بانتظار الرد ⏳</span><span>بانتظار</span></div></div></div>
+
+<div id="waiting" class="page"><button class="back" onclick="openPage('home')">← رجوع</button><div class="box"><h3>⏳ بانتظار الرد فقط</h3><div class="row"><span>طلبك لفرع الرياض - للحين ما انرد عليه</span><span>⏳</span></div></div></div>
+
+<div id="official" class="page"><button class="back" onclick="openPage('home')">← رجوع</button><div class="box"><h3>📄 المراسلات الرسمية</h3><div class="row"><span>من الإدارة: تحديث جديد في النظام</span><span>21 غير مقروءة</span></div><div class="row"><span>من الإدارة: مواعيد الشحنات الجديدة</span><span>جديد</span></div></div></div>
+
+<div id="chat" class="page"><button class="back" onclick="openPage('home')">← رجوع</button><div class="box"><h3>💬 المحادثات الداخلية</h3><div class="row"><span>👤 مدير الفرع: خلصت الجرد؟</span><span>الآن</span></div><div class="row"><span>👤 زميلك: وصلت الشحنة؟</span><span>أمس</span></div><input placeholder="اكتب رسالتك..."><button class="btn">إرسال</button></div></div>
+
+<div id="payments" class="page"><button class="back" onclick="openPage('home')">← رجوع</button><div class="box"><h3>📁 ملفات الدفعات</h3><div class="row"><span>ملف دفعة رقم 1 - قيد المعالجة</span><span>مفتوح</span></div><div class="row"><span>ملف دفعة رقم 2 - تم</span><span>تم</span></div></div></div>
+
+<div id="resp" class="page"><button class="back" onclick="openPage('home')">← رجوع</button><div class="box"><h3>👥 المسؤوليات</h3><p>مسؤولياتك في فرع الفرسان: استلام الشحنات، متابعة المخزون، الرد على الطلبات، ترتيب الرفوف.</p></div></div>
+
+<div id="rules" class="page"><button class="back" onclick="openPage('home')">← رجوع</button><div class="box"><h3>📜 الآليات والتعليمات</h3><p>1- اطلب المنتج من أين أجد المنتج؟<br>2- أكد استلام الشحنة بنفس اليوم<br>3- رد على الطلبات خلال 24 ساعة</p></div></div>
+
+<div id="cards" class="page"><button class="back" onclick="openPage('home')">← رجوع</button><div class="box"><h3>🪪 بطاقات التعريف</h3><div class="row"><span>بطاقة علي خالد ويس - فرع الفرسان - موظف</span><span>عرض</span></div></div></div>
+
+<div id="account" class="page"><button class="back" onclick="openPage('home')">← رجوع</button><div class="box"><h3>📧 حسابي والبريد</h3><p><b>الاسم:</b> علي خالد ويس<br><b>الفرع:</b> فرع الفرسان<br><b>البريد:</b> ali@fux.com</p><button class="btn">تعديل بياناتي</button></div></div>
+
+<div id="control" class="page"><button class="back" onclick="openPage('home')">← رجوع</button><div class="box"><h3>🔧 التحكم في التطبيق والتطوير</h3><p>إعدادات التطبيق وتطوير النظام</p><div class="row"><span>الإشعارات</span><span>تشغيل ✅</span></div><div class="row"><span>الوضع الليلي</span><span>إيقاف</span></div></div></div>
+
 <script>
+function openPage(id){
+document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});
+var el=document.getElementById(id);
+if(el){el.classList.add('active')}
+document.querySelectorAll('.menu').forEach(function(m){m.classList.remove('open')});
+document.querySelectorAll('.navBtn').forEach(function(b){b.classList.remove('active')});
+window.scrollTo(0,0);
+}
 document.querySelectorAll('.navBtn').forEach(function(btn){
 btn.addEventListener('click',function(e){
 e.stopPropagation();
@@ -97,6 +178,10 @@ document.querySelectorAll('.menu').forEach(function(m){m.classList.remove('open'
 document.querySelectorAll('.navBtn').forEach(function(b){b.classList.remove('active')});
 });
 document.querySelectorAll('.menu').forEach(function(m){m.addEventListener('click',function(e){e.stopPropagation();})});
+function searchProduct(){
+var v=document.getElementById('searchInput').value;
+document.getElementById('searchResult').innerHTML='<div class="row"><span>نتيجة البحث عن: '+v+' - متوفر في 3 فروع</span><span>✅</span></div>';
+}
 var slides=[
 {title:"بطاقة المنتجات المقايضة | متابعة أدق وتحكم أكبر",text:"تمت إضافة بطاقة المنتجات المقايضة إلى نظام FUX، لتوفير طريقة أكثر سهولة ومرونة لمتابعة المنتجات المقايضة حسب الفترة المحددة."},
 {title:"بطاقة المنتجات التي عليها عروض | تابع عروضك باستمرار",text:"ضمن التحسينات الجديدة في نظام FUX تمت إضافة بطاقة مخصصة للمنتجات التي عليها عروض، لمتابعة العروض بسهولة."},
