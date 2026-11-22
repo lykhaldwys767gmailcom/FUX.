@@ -3,31 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FUX - فوكس</title>
+<title>FUX</title>
 <style>
-body{margin:0;font-family:system-ui;background:#0f0f0f;color:white;text-align:center}
-header{padding:60px 20px;background:linear-gradient(135deg,#ff2d55,#7c00ff)}
-h1{font-size:55px;margin:0}
-p{color:#ddd}
-.card{background:#1c1c1e;margin:15px;padding:20px;border-radius:20px;text-align:right}
-button{background:#ff2d55;color:white;border:0;padding:15px 30px;border-radius:30px;font-size:18px;width:90%}
-input{width:90%;padding:14px;border-radius:15px;border:0;margin:10px 0}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui;background:#f6f0f3;color:#2a0a15}
+.top{background:#7a0a2a;color:white;display:flex;justify-content:space-between;align-items:center;padding:8px 15px;font-size:13px;flex-wrap:wrap}
+.top b{font-size:18px}.top button{background:#5a071f;color:white;border:0;padding:7px 12px;border-radius:8px;cursor:pointer}
+nav{background:white;display:flex;gap:5px;padding:8px;overflow:auto;box-shadow:0 2px 8px #0001;position:sticky;top:0;z-index:10}
+.drop{position:relative}.drop>button{background:#fff;border:1px solid #eee;padding:8px 12px;border-radius:10px;cursor:pointer;white-space:nowrap}
+.menu{display:none;position:absolute;right:0;top:42px;background:white;min-width:190px;border-radius:12px;box-shadow:0 10px 30px #0002;overflow:hidden;z-index:20}
+.menu a{display:block;padding:11px 14px;text-decoration:none;color:#333;border-bottom:1px solid #f0f0f0}
+.hero{margin:12px;background:linear-gradient(90deg,#8b0f32,#4a0620);color:white;border-radius:16px;padding:22px}
+.greet{margin:12px;background:#e8eafb;border-radius:14px;padding:14px;display:flex;justify-content:space-between}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:12px}
+.card{background:white;border-radius:14px;padding:14px;box-shadow:0 2px 8px #0001}
+.card b{font-size:22px;color:#8b0f32}.small{color:#777;font-size:12px}
+@media(max-width:700px){.grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
-<header>
-<h1>FUX</h1>
-<p>لم يتم تقديم أي وصف أو موقع أو الكتروني أو تواصل.</p>
-<p>تطبيقك الجديد يبدأ من هنا</p>
-</header>
-<div style="padding:20px">
-<div class="card"><h3>🔥 اكتشف</h3><p>محتوى جديد كل يوم، مصمم لك.</p></div>
-<div class="card"><h3>💬 تواصل</h3><p>تابع أصدقائك وتواصل معهم بسهولة.</p></div>
-<div class="card"><h3>⭐ المفضلة</h3><p>احفظ اللي يعجبك وارجع له بأي وقت.</p></div>
-<h3>سجل دخولك</h3>
-<input placeholder="الإيميل">
-<input placeholder="كلمة السر" type="password">
-<br><button>دخول إلى FUX</button>
+<div class="top">
+<div><b>FUX</b> | علي خالد ويس</div>
+<div>🔔 19 | علي خالد ويس 👤 <button>فرع الفرسان</button></div>
 </div>
+<nav>
+<div class="drop"><button onclick="t('m1')">الرئيسية ▼</button><div id="m1" class="menu"><a href="#">لوحة التحكم</a><a href="#">ملخص الفرع</a><a href="#">التقارير</a></div></div>
+<div class="drop"><button onclick="t('m2')">الطلبات ▼</button><div id="m2" class="menu"><a href="#">طلب جديد</a><a href="#">طلباتي</a><a href="#">طلبات معلقة - 4</a></div></div>
+<div class="drop"><button onclick="t('m3')">المراسلات ▼</button><div id="m3" class="menu"><a href="#">رسائل جديدة - 21</a><a href="#">مراسلاتي</a></div></div>
+<div class="drop"><button onclick="t('m4')">المرجع ▼</button><div id="m4" class="menu"><a href="#">المنتجات</a><a href="#">الأسعار</a><a href="#">المخزون</a></div></div>
+<div class="drop"><button onclick="t('m5')">حسابي ▼</button><div id="m5" class="menu"><a href="#">حسابي والبريد</a><a href="#">علي خالد ويس</a><a href="#">تسجيل خروج</a></div></div>
+</nav>
+<div class="greet"><div><b>مرحباً، فرع الفرسان</b><div class="small">لديك اليوم 370 منتجات متوقفة عن البيع و 9 منتجاً بالسالب و 35 منتج في الطريق إليك.</div></div><div>🌙 مساء الخير<br><span class="small">علي خالد ويس</span></div></div>
+<div class="hero"><span style="background:#ffcc00;color:black;padding:3px 10px;border-radius:20px;font-size:12px">مهم ! 3 غير مقروءة</span><h2>بطاقة المنتجات التي عليها عروض</h2><p>ضمن التحسينات الجديدة في نظام FUX تمت إضافة بطاقة مخصصة للمنتجات التي عليها عروض.</p><button style="background:white;color:#8b0f32;border:0;padding:10px 18px;border-radius:20px">← اقرأ المزيد</button><div class="small" style="color:white;margin-top:8px">علي خالد ويس ، 2026-11-22</div></div>
+<div class="grid">
+<div class="card">المنتجات السالبة<div><b>0 منتج</b></div></div>
+<div class="card">العروض المقفلة<div><b>0 منتج</b></div></div>
+<div class="card">المتوقف عن البيع<div><b>370 منتج</b></div></div>
+<div class="card">المقايض على الاشتراء<div><b>1,872 منتج</b></div></div>
+<div class="card">التحويل الواردة<div><b>35 منتج</b></div></div>
+<div class="card">التحويل الصادرة<div><b>26 منتج</b></div></div>
+</div>
+<script>
+function t(id){document.querySelectorAll('.menu').forEach(m=>{if(m.id!==id)m.style.display='none'});let e=document.getElementById(id);e.style.display=e.style.display==='block'?'none':'block'}
+document.addEventListener('click',e=>{if(!e.target.closest('.drop'))document.querySelectorAll('.menu').forEach(m=>m.style.display='none')})
+</script>
 </body>
 </html>
