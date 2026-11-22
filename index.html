@@ -7,31 +7,75 @@
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:system-ui;background:#f6f0f3;color:#2a0a15}
 .top{background:#7a0a2a;color:white;display:flex;justify-content:space-between;align-items:center;padding:8px 15px;font-size:13px;flex-wrap:wrap}
-.top b{font-size:18px}.top button{background:#5a071f;color:white;border:0;padding:7px 12px;border-radius:8px;cursor:pointer}
-nav{background:white;display:flex;gap:5px;padding:8px;overflow:auto;box-shadow:0 2px 8px #0001;position:sticky;top:0;z-index:10}
-.drop{position:relative}.drop>button{background:#fff;border:1px solid #eee;padding:8px 12px;border-radius:10px;cursor:pointer;white-space:nowrap}
-.menu{display:none;position:absolute;right:0;top:42px;background:white;min-width:190px;border-radius:12px;box-shadow:0 10px 30px #0002;overflow:hidden;z-index:20}
-.menu a{display:block;padding:11px 14px;text-decoration:none;color:#333;border-bottom:1px solid #f0f0f0}
+.top b{font-size:20px}.top button{background:#5a071f;color:white;border:0;padding:7px 12px;border-radius:8px}
+nav{background:white;display:flex;gap:6px;padding:10px;flex-wrap:wrap;position:relative;z-index:100;box-shadow:0 2px 8px #0001}
+.drop{position:relative}.drop>button{background:#fff;border:1px solid #ddd;padding:10px 14px;border-radius:10px;cursor:pointer;font-size:15px}
+.drop>button.active{background:#7a0a2a;color:white}
+.menu{display:none;position:absolute;right:0;top:46px;background:white;min-width:280px;max-width:92vw;border-radius:12px;box-shadow:0 15px 40px rgba(0,0,0,.25);overflow:hidden;z-index:999;border:1px solid #eee;max-height:80vh;overflow-y:auto}
+.menu a{display:block;padding:12px 14px;text-decoration:none;color:#333;border-bottom:1px solid #f5f5f5;font-size:15px}
+.menu a:hover{background:#fff0f3;color:#7a0a2a}
+.menu .sec{background:#f8f0f2;padding:8px 14px;font-weight:700;color:#7a0a2a;font-size:14px}
+.menu .note{padding:10px 14px;font-size:13px;color:#666;background:#fffbe6;line-height:1.6}
+.menu .sub{padding:10px 14px 4px;font-weight:700;color:#333}
 .hero{margin:12px;background:linear-gradient(90deg,#8b0f32,#4a0620);color:white;border-radius:16px;padding:22px}
 .greet{margin:12px;background:#e8eafb;border-radius:14px;padding:14px;display:flex;justify-content:space-between}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:12px}
 .card{background:white;border-radius:14px;padding:14px;box-shadow:0 2px 8px #0001}
 .card b{font-size:22px;color:#8b0f32}.small{color:#777;font-size:12px}
-@media(max-width:700px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.grid{grid-template-columns:1fr 1fr}.menu{min-width:260px}}
 </style>
 </head>
 <body>
-<div class="top">
-<div><b>FUX</b> | علي خالد ويس</div>
-<div>🔔 19 | علي خالد ويس 👤 <button>فرع الفرسان</button></div>
-</div>
+<div class="top"><div><b>FUX</b> | علي خالد ويس</div><div>🔔 19 | علي خالد ويس 👤 <button>فرع الفرسان</button></div></div>
+
 <nav>
-<div class="drop"><button onclick="t('m1')">الرئيسية ▼</button><div id="m1" class="menu"><a href="#">لوحة التحكم</a><a href="#">ملخص الفرع</a><a href="#">التقارير</a></div></div>
-<div class="drop"><button onclick="t('m2')">الطلبات ▼</button><div id="m2" class="menu"><a href="#">طلب جديد</a><a href="#">طلباتي</a><a href="#">طلبات معلقة - 4</a></div></div>
-<div class="drop"><button onclick="t('m3')">المراسلات ▼</button><div id="m3" class="menu"><a href="#">رسائل جديدة - 21</a><a href="#">مراسلاتي</a></div></div>
-<div class="drop"><button onclick="t('m4')">المرجع ▼</button><div id="m4" class="menu"><a href="#">المنتجات</a><a href="#">الأسعار</a><a href="#">المخزون</a></div></div>
-<div class="drop"><button onclick="t('m5')">حسابي ▼</button><div id="m5" class="menu"><a href="#">حسابي والبريد</a><a href="#">علي خالد ويس</a><a href="#">تسجيل خروج</a></div></div>
+<div class="drop"><button onclick="t(event,'m1')">الرئيسية ▼</button><div id="m1" class="menu">
+<div class="sec">القسم الأول:</div>
+<a href="#">الرئيسية: الصفحة الرئيسية</a>
+<a href="#">مهامي: المهام الخاصة فيك</a>
+<div class="sec">القسم الثاني:</div>
+<a href="#">أين أجد المنتج؟: تبحث عن المنتج وين موجود</a>
+<a href="#">منتجات الفرع: منتجات فرعك</a>
+<a href="#">التحويل المتوقع: التحويلات اللي متوقع توصلك</a>
+<a href="#">استلام شحنة: استلام الشحنات</a>
+<div class="sec">القسم الثالث:</div>
+<a href="#">التحليل والتقارير</a>
+<a href="#">تحليل فرعي</a>
+<a href="#">التقارير</a>
+<a href="#">التقارير الشهرية</a>
+</div></div>
+
+<div class="drop"><button onclick="t(event,'m2')">الطلبات ▼</button><div id="m2" class="menu">
+<a href="#">طلبات المنتج</a>
+<a href="#">طلبات المنتجات</a>
+<div class="sub">داخل طلبات المنتجات:</div>
+<div class="note">تدخل على <b>أين أجد المنتج؟</b><br>تلقى بجانب الفرع زر <b>اطلب</b><br>تضغطه عشان تطلب المنتج</div>
+<div class="sub">وتحت فيه 3 أيقونات:</div>
+<a href="#">1. الوارد إلى فرعي: الطلبات اللي جاية لفرعك</a>
+<a href="#">2. طلباتي: الطلبات اللي انت طلبتها</a>
+<a href="#">3. بانتظار الرد فقط: الطلبات اللي للحين ما انرد عليها</a>
+</div></div>
+
+<div class="drop"><button onclick="t(event,'m3')">المراسلات ▼</button><div id="m3" class="menu">
+<a href="#">1. المراسلات الرسمية</a>
+<a href="#">2. المحادثات الداخلية</a>
+<a href="#">3. ملفات الدفعات</a>
+</div></div>
+
+<div class="drop"><button onclick="t(event,'m4')">المرجع ▼</button><div id="m4" class="menu">
+<a href="#">1. المسؤوليات</a>
+<a href="#">2. الآليات والتعليمات</a>
+<a href="#">3. بطاقات التعريف</a>
+</div></div>
+
+<div class="drop"><button onclick="t(event,'m5')">حسابي ▼</button><div id="m5" class="menu">
+<a href="#">1. حسابي والبريد</a>
+<a href="#">2. التحكم في التطبيق والتطوير</a>
+<a href="#">علي خالد ويس</a>
+<a href="#">تسجيل خروج</a>
+</div></div>
 </nav>
+
 <div class="greet"><div><b>مرحباً، فرع الفرسان</b><div class="small">لديك اليوم 370 منتجات متوقفة عن البيع و 9 منتجاً بالسالب و 35 منتج في الطريق إليك.</div></div><div>🌙 مساء الخير<br><span class="small">علي خالد ويس</span></div></div>
 <div class="hero"><span style="background:#ffcc00;color:black;padding:3px 10px;border-radius:20px;font-size:12px">مهم ! 3 غير مقروءة</span><h2>بطاقة المنتجات التي عليها عروض</h2><p>ضمن التحسينات الجديدة في نظام FUX تمت إضافة بطاقة مخصصة للمنتجات التي عليها عروض.</p><button style="background:white;color:#8b0f32;border:0;padding:10px 18px;border-radius:20px">← اقرأ المزيد</button><div class="small" style="color:white;margin-top:8px">علي خالد ويس ، 2026-11-22</div></div>
 <div class="grid">
@@ -43,8 +87,8 @@ nav{background:white;display:flex;gap:5px;padding:8px;overflow:auto;box-shadow:0
 <div class="card">التحويل الصادرة<div><b>26 منتج</b></div></div>
 </div>
 <script>
-function t(id){document.querySelectorAll('.menu').forEach(m=>{if(m.id!==id)m.style.display='none'});let e=document.getElementById(id);e.style.display=e.style.display==='block'?'none':'block'}
-document.addEventListener('click',e=>{if(!e.target.closest('.drop'))document.querySelectorAll('.menu').forEach(m=>m.style.display='none')})
+function t(e,id){e.stopPropagation();var el=document.getElementById(id);var isOpen=el.style.display==='block';document.querySelectorAll('.menu').forEach(m=>m.style.display='none');document.querySelectorAll('.drop>button').forEach(b=>b.classList.remove('active'));if(!isOpen){el.style.display='block';e.currentTarget.classList.add('active');}}
+document.addEventListener('click',function(){document.querySelectorAll('.menu').forEach(m=>m.style.display='none');document.querySelectorAll('.drop>button').forEach(b=>b.classList.remove('active'));});
 </script>
 </body>
 </html>
