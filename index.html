@@ -5,90 +5,103 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FUX</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:system-ui;background:#f6f0f3;color:#2a0a15}
-.top{background:#7a0a2a;color:white;display:flex;justify-content:space-between;align-items:center;padding:8px 15px;font-size:13px;flex-wrap:wrap}
-.top b{font-size:20px}.top button{background:#5a071f;color:white;border:0;padding:7px 12px;border-radius:8px}
-nav{background:white;display:flex;gap:6px;padding:10px;flex-wrap:wrap;position:relative;z-index:100;box-shadow:0 2px 8px #0001}
-.drop{position:relative}.drop>button{background:#fff;border:1px solid #ddd;padding:10px 14px;border-radius:10px;cursor:pointer;font-size:15px}
-.drop>button.active{background:#7a0a2a;color:white}
-.menu{display:none;position:absolute;right:0;top:46px;background:white;min-width:280px;max-width:92vw;border-radius:12px;box-shadow:0 15px 40px rgba(0,0,0,.25);overflow:hidden;z-index:999;border:1px solid #eee;max-height:80vh;overflow-y:auto}
-.menu a{display:block;padding:12px 14px;text-decoration:none;color:#333;border-bottom:1px solid #f5f5f5;font-size:15px}
-.menu a:hover{background:#fff0f3;color:#7a0a2a}
-.menu .sec{background:#f8f0f2;padding:8px 14px;font-weight:700;color:#7a0a2a;font-size:14px}
-.menu .note{padding:10px 14px;font-size:13px;color:#666;background:#fffbe6;line-height:1.6}
-.menu .sub{padding:10px 14px 4px;font-weight:700;color:#333}
-.hero{margin:12px;background:linear-gradient(90deg,#8b0f32,#4a0620);color:white;border-radius:16px;padding:22px}
-.greet{margin:12px;background:#e8eafb;border-radius:14px;padding:14px;display:flex;justify-content:space-between}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:12px}
-.card{background:white;border-radius:14px;padding:14px;box-shadow:0 2px 8px #0001}
-.card b{font-size:22px;color:#8b0f32}.small{color:#777;font-size:12px}
-@media(max-width:700px){.grid{grid-template-columns:1fr 1fr}.menu{min-width:260px}}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui;background:#f9f3f4;color:#2a0a15}
+.top{background:#6d0a26;color:white;display:flex;justify-content:space-between;align-items:center;padding:6px 14px;font-size:13px}
+.top b{font-size:18px}.top button{background:#4a0518;color:white;border:0;padding:7px 12px;border-radius:8px}
+nav{background:white;display:flex;gap:4px;padding:6px 10px;position:relative;z-index:100;box-shadow:0 2px 8px #0001;flex-wrap:wrap}
+.drop{position:relative}.drop>button{background:white;border:0;padding:10px 12px;border-radius:10px;cursor:pointer;font-size:15px;font-weight:600;color:#333}
+.drop>button.active{background:#fdf0f3;color:#7a0a2a}
+.menu{display:none;position:absolute;right:0;top:46px;background:white;min-width:290px;border-radius:14px;box-shadow:0 15px 40px rgba(0,0,0,.22);z-index:999;border:1px solid #eee;padding:6px 0;max-height:82vh;overflow-y:auto}
+.menu a{display:flex;align-items:center;gap:10px;justify-content:space-between;padding:11px 14px;text-decoration:none;color:#222;font-size:15px}
+.menu a:hover{background:#fdf0f3}.menu a span{flex:1}.menu .ic{width:32px;height:32px;border-radius:9px;background:#fdf0f3;display:flex;align-items:center;justify-content:center;font-size:16px;color:#7a0a2a}
+.menu .head{padding:8px 14px;font-size:12px;color:#999;font-weight:700}
+.greet{margin:12px;background:#e8eafb;border-radius:12px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
+.banner{margin:12px;background:linear-gradient(90deg,#8b0f32,#4a0620);color:white;border-radius:16px;padding:22px;position:relative;overflow:hidden;min-height:180px}
+.banner .tags{display:flex;gap:6px;flex-wrap:wrap}.tag{padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700}.tag1{background:#ff2d55}.tag2{background:#00a86b}.tag3{background:#ffcc00;color:#000}
+.banner h2{margin:10px 0 6px;font-size:22px}.banner p{opacity:.9;line-height:1.6}.banner button{background:white;color:#8b0f32;border:0;padding:10px 18px;border-radius:20px;font-weight:700;cursor:pointer;margin-top:10px}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.25);color:white;border:0;width:38px;height:38px;border-radius:50%;font-size:18px;cursor:pointer;z-index:5}
+.arrowL{left:10px}.arrowR{right:10px}
+.dots{text-align:center;margin-top:10px}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ccc;margin:0 3px;cursor:pointer}.dot.on{background:#8b0f32;width:22px;border-radius:10px}
+.sec{display:flex;justify-content:space-between;align-items:center;padding:4px 12px}.sec h3{margin:6px 0;font-size:16px}.sec a{color:#7a0a2a;text-decoration:none;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;padding:8px 12px}
+.card{background:white;border-radius:14px;padding:14px;box-shadow:0 2px 8px #0001;min-height:110px}
+.card .t{font-size:13px;color:#555;display:flex;justify-content:space-between}.card b{font-size:22px;color:#8b0f32;display:block;margin-top:10px}.card .s{font-size:11px;color:#888}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:8px 12px}
+.card2{background:white;border-radius:14px;padding:14px;box-shadow:0 2px 8px #0001;display:flex;justify-content:space-between;align-items:center}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,1fr)}.grid2{grid-template-columns:1fr}}
+@media(max-width:550px){.grid{grid-template-columns:1fr 1fr}.banner h2{font-size:19px}}
 </style>
 </head>
 <body>
-<div class="top"><div><b>FUX</b> | علي خالد ويس</div><div>🔔 19 | علي خالد ويس 👤 <button>فرع الفرسان</button></div></div>
-
+<div class="top"><div><b>NMA</b> | FUX - علي خالد ويس</div><div>🔔 23 | علي خالد ويس 👤 <button>فرع الفرسان</button></div></div>
 <nav>
 <div class="drop"><button onclick="t(event,'m1')">الرئيسية ▼</button><div id="m1" class="menu">
-<div class="sec">القسم الأول:</div>
-<a href="#">الرئيسية: الصفحة الرئيسية</a>
-<a href="#">مهامي: المهام الخاصة فيك</a>
-<div class="sec">القسم الثاني:</div>
-<a href="#">أين أجد المنتج؟: تبحث عن المنتج وين موجود</a>
-<a href="#">منتجات الفرع: منتجات فرعك</a>
-<a href="#">التحويل المتوقع: التحويلات اللي متوقع توصلك</a>
-<a href="#">استلام شحنة: استلام الشحنات</a>
-<div class="sec">القسم الثالث:</div>
-<a href="#">التحليل والتقارير</a>
-<a href="#">تحليل فرعي</a>
-<a href="#">التقارير</a>
-<a href="#">التقارير الشهرية</a>
+<a href="#"><span>الرئيسية</span><div class="ic">🏠</div></a>
+<a href="#"><span>مهامي</span><div class="ic">☰</div></a>
+<div class="head">المنتجات والتحويلات</div>
+<a href="#"><span>أين أجد المنتج؟</span><div class="ic">🔍</div></a>
+<a href="#"><span>منتجات الفرع</span><div class="ic">📦</div></a>
+<a href="#"><span>التحويل المتوقع</span><div class="ic">🔄</div></a>
+<a href="#"><span>استلام شحنة</span><div class="ic">📥</div></a>
+<div class="head">التحليل والتقارير</div>
+<a href="#"><span>التحليل والتقارير</span><div class="ic">📊</div></a>
+<a href="#"><span>تحليل فرعي</span><div class="ic">📈</div></a>
+<a href="#"><span>التقارير</span><div class="ic">📋</div></a>
+<a href="#"><span>التقارير الشهرية</span><div class="ic">🗓️</div></a>
 </div></div>
-
-<div class="drop"><button onclick="t(event,'m2')">الطلبات ▼</button><div id="m2" class="menu">
-<a href="#">طلبات المنتج</a>
-<a href="#">طلبات المنتجات</a>
-<div class="sub">داخل طلبات المنتجات:</div>
-<div class="note">تدخل على <b>أين أجد المنتج؟</b><br>تلقى بجانب الفرع زر <b>اطلب</b><br>تضغطه عشان تطلب المنتج</div>
-<div class="sub">وتحت فيه 3 أيقونات:</div>
-<a href="#">1. الوارد إلى فرعي: الطلبات اللي جاية لفرعك</a>
-<a href="#">2. طلباتي: الطلبات اللي انت طلبتها</a>
-<a href="#">3. بانتظار الرد فقط: الطلبات اللي للحين ما انرد عليها</a>
-</div></div>
-
-<div class="drop"><button onclick="t(event,'m3')">المراسلات ▼</button><div id="m3" class="menu">
-<a href="#">1. المراسلات الرسمية</a>
-<a href="#">2. المحادثات الداخلية</a>
-<a href="#">3. ملفات الدفعات</a>
-</div></div>
-
-<div class="drop"><button onclick="t(event,'m4')">المرجع ▼</button><div id="m4" class="menu">
-<a href="#">1. المسؤوليات</a>
-<a href="#">2. الآليات والتعليمات</a>
-<a href="#">3. بطاقات التعريف</a>
-</div></div>
-
-<div class="drop"><button onclick="t(event,'m5')">حسابي ▼</button><div id="m5" class="menu">
-<a href="#">1. حسابي والبريد</a>
-<a href="#">2. التحكم في التطبيق والتطوير</a>
-<a href="#">علي خالد ويس</a>
-<a href="#">تسجيل خروج</a>
-</div></div>
+<div class="drop"><button onclick="t(event,'m2')">الطلبات ▼</button><div id="m2" class="menu"><a href="#"><span>طلبات المنتج</span><div class="ic">🛒</div></a><a href="#"><span>طلبات المنتجات</span><div class="ic">📦</div></a><a href="#"><span>الوارد إلى فرعي</span><div class="ic">📥</div></a><a href="#"><span>طلباتي</span><div class="ic">📝</div></a><a href="#"><span>بانتظار الرد فقط</span><div class="ic">⏳</div></a></div></div>
+<div class="drop"><button onclick="t(event,'m3')">المراسلات ▼</button><div id="m3" class="menu"><a href="#"><span>المراسلات الرسمية</span><div class="ic">📄</div></a><a href="#"><span>المحادثات الداخلية</span><div class="ic">💬</div></a><a href="#"><span>ملفات الدفعات</span><div class="ic">📁</div></a></div></div>
+<div class="drop"><button onclick="t(event,'m4')">المرجع ▼</button><div id="m4" class="menu"><a href="#"><span>المسؤوليات</span><div class="ic">👥</div></a><a href="#"><span>الآليات والتعليمات</span><div class="ic">📜</div></a><a href="#"><span>بطاقات التعريف</span><div class="ic">🪪</div></a></div></div>
+<div class="drop"><button onclick="t(event,'m5')">حسابي ▼</button><div id="m5" class="menu"><a href="#"><span>حسابي والبريد</span><div class="ic">📧</div></a><a href="#"><span>التحكم في التطبيق والتطوير</span><div class="ic">🔧</div></a></div></div>
 </nav>
-
-<div class="greet"><div><b>مرحباً، فرع الفرسان</b><div class="small">لديك اليوم 370 منتجات متوقفة عن البيع و 9 منتجاً بالسالب و 35 منتج في الطريق إليك.</div></div><div>🌙 مساء الخير<br><span class="small">علي خالد ويس</span></div></div>
-<div class="hero"><span style="background:#ffcc00;color:black;padding:3px 10px;border-radius:20px;font-size:12px">مهم ! 3 غير مقروءة</span><h2>بطاقة المنتجات التي عليها عروض</h2><p>ضمن التحسينات الجديدة في نظام FUX تمت إضافة بطاقة مخصصة للمنتجات التي عليها عروض.</p><button style="background:white;color:#8b0f32;border:0;padding:10px 18px;border-radius:20px">← اقرأ المزيد</button><div class="small" style="color:white;margin-top:8px">علي خالد ويس ، 2026-11-22</div></div>
+<div class="greet"><div><b>مرحباً، فرع الفرسان 🌙 مساء الخير</b><div class="small" style="color:#666">لديك اليوم 370 منتجات متوقفة عن البيع و 0 منتجاً بالسالب و 35 منتج في الطريق إليك.</div></div><div style="text-align:left"><b style="color:#5b6bd5">مساء الخير</b><div class="small">الثالث 23 نوفمبر 2026</div></div></div>
+<div class="banner" id="banner">
+<button class="arrow arrowR" onclick="move(-1)">›</button>
+<button class="arrow arrowL" onclick="move(1)">‹</button>
+<div id="slide">
+<div class="tags"><span>📢 الإعلانات والتحديثات</span><span class="tag tag1">! مهم</span><span class="tag tag2">✦ جديد</span><span class="tag tag3">🔔 2 غير مقروءة</span></div>
+<h2 id="bTitle">بطاقة المنتجات المقايضة | متابعة أدق وتحكم أكبر</h2>
+<p id="bText">تمت إضافة بطاقة المنتجات المقايضة إلى نظام NMA، لتوفير طريقة أكثر سهولة ومرونة لمتابعة المنتجات المقايضة حسب الفترة المحددة.</p>
+<button>ما الجديد؟ ← اقرأ المزيد</button>
+<div style="font-size:12px;margin-top:10px;opacity:.8">🕐 2026-11-22 - علي خالد ويس | كل الإعلانات (6)</div>
+</div>
+</div>
+<div class="dots"><span class="dot on" onclick="go(0)"></span><span class="dot" onclick="go(1)"></span><span class="dot" onclick="go(2)"></span></div>
+<div class="sec"><h3>ملخص الفرع</h3><a href="#">كل التقارير</a></div>
 <div class="grid">
-<div class="card">المنتجات السالبة<div><b>0 منتج</b></div></div>
-<div class="card">العروض المقفلة<div><b>0 منتج</b></div></div>
-<div class="card">المتوقف عن البيع<div><b>370 منتج</b></div></div>
-<div class="card">المقايض على الاشتراء<div><b>1,872 منتج</b></div></div>
-<div class="card">التحويل الواردة<div><b>35 منتج</b></div></div>
-<div class="card">التحويل الصادرة<div><b>26 منتج</b></div></div>
+<div class="card"><div class="t">المنتجات السالبة <span>📉</span></div><b>0 منتج</b><div class="s">0 وحدة بالسالب</div></div>
+<div class="card"><div class="t">العروض المقفلة <span>🏷️</span></div><b>0 منتج</b><div class="s">0 وحدة في رصيد الفرع</div></div>
+<div class="card"><div class="t">المتوقف عن البيع <span>⏸️</span></div><b>370 منتج</b><div class="s">3,483 وحدة</div></div>
+<div class="card"><div class="t">المقايض على الاشتراء <span>🛒</span></div><b>1,872 منتج</b><div class="s">11,783 وحدة</div></div>
+<div class="card"><div class="t">التحويل الواردة <span>📥</span></div><b>35 منتج</b><div class="s">167 وحدة</div></div>
+<div class="card"><div class="t">التحويل الصادرة <span>📤</span></div><b>26 منتج</b><div class="s">89 وحدة</div></div>
+</div>
+<div class="grid2">
+<div class="card2"><div><b>مواعيد الشحنات 🚚</b><div style="color:#7a0a2a;font-weight:700;margin-top:8px">الاثنين + الخميس</div><div class="small">الموعد القادم: اليوم الثلاثاء</div></div><div style="font-size:32px">🚚</div></div>
+<div class="card2"><div><b>ملف المخزون 📋</b><div style="color:#7a0a2a;font-weight:700;margin-top:8px">تنزيل Excel</div><div class="small">بتاريخ 22-11-2026 5:57 p</div></div><div style="font-size:32px">📊</div></div>
+</div>
+<div class="sec"><h3>المتابعة اليومية</h3><a href="#">كل التقارير</a></div>
+<div class="grid">
+<div class="card"><div class="t">مهام مطلوبة مني <span>☰</span></div><b>4</b><div class="s">مهمة من الإدارة لم تُنجز</div></div>
+<div class="card"><div class="t">بحاجة لردي <span>↩️</span></div><b>0</b><div class="s">مراسلة تنتظرك</div></div>
+<div class="card"><div class="t">رسائل غير مقروءة <span>✉️</span></div><b>21</b><div class="s">مراسلة لم تُفتح بعد</div></div>
+<div class="card"><div class="t">دفعات مفتوحة <span>📁</span></div><b>1</b><div class="s">ملف دفعات قيد المعالجة</div></div>
+<div class="card"><div class="t">منتجات الفرع <span>📦</span></div><b style="font-size:18px">المكياج وبقية المنتجات</b><div class="s">المنتجات وحالة كل منتج</div></div>
+<div class="card"><div class="t">أصناف سالبة <span>📉</span></div><b>5</b><div class="s">من احتياج الفرع</div></div>
 </div>
 <script>
 function t(e,id){e.stopPropagation();var el=document.getElementById(id);var isOpen=el.style.display==='block';document.querySelectorAll('.menu').forEach(m=>m.style.display='none');document.querySelectorAll('.drop>button').forEach(b=>b.classList.remove('active'));if(!isOpen){el.style.display='block';e.currentTarget.classList.add('active');}}
 document.addEventListener('click',function(){document.querySelectorAll('.menu').forEach(m=>m.style.display='none');document.querySelectorAll('.drop>button').forEach(b=>b.classList.remove('active'));});
+var slides=[
+{title:"بطاقة المنتجات المقايضة | متابعة أدق وتحكم أكبر",text:"تمت إضافة بطاقة المنتجات المقايضة إلى نظام NMA، لتوفير طريقة أكثر سهولة ومرونة لمتابعة المنتجات المقايضة حسب الفترة المحددة."},
+{title:"بطاقة المنتجات التي عليها عروض | تابع عروضك باستمرار",text:"ضمن التحسينات الجديدة في نظام FUX تمت إضافة بطاقة مخصصة للمنتجات التي عليها عروض، لمتابعة العروض بسهولة."},
+{title:"تحسينات جديدة في التحويلات والطلبات",text:"صار تقدر تطلب المنتج من صفحة أين أجد المنتج؟ بضغطة زر اطلب بجانب الفرع، وتتابع طلباتك من الوارد إلى فرعي وطلباتي."}
+];
+var cur=0;
+function show(){document.getElementById('bTitle').innerText=slides[cur].title;document.getElementById('bText').innerText=slides[cur].text;document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('on',i===cur));}
+function move(n){cur=(cur+n+slides.length)%slides.length;show();}
+function go(n){cur=n;show();}
+setInterval(function(){move(1)},6000);
 </script>
 </body>
 </html>
